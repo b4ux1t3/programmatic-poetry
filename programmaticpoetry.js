@@ -18,7 +18,31 @@ var inputWord;        // The word "girl" from the example
 // index back until it finds a white space, and then select up through
 // the next whitespace or non-alphabetic character.
 function findWordAtIndex(searchText, index){
-    if (searchText[index])
+    // First check if something isAlphabetic. If it is, move backwards 
+    // through the string until you find a non-alphabetic character. 
+    // Then save the index after that as the beginning of the word. 
+    while (isAlphabetic(searchText.charAt(index))){
+        index--;
+    }
+    // Index should now be at the beginning of the word.
+    ++index;  
+    // If it isn't (as in, if the first while statement was false),
+    // move forward until you find an alphabetic character, then
+    // set startIndex to index.
+    while (!isAlphabetic(searchText.charAt(index))){
+        index++;
+    }                          
+    var startIndex = index;
+
+    // Then, move forward through the string until you find a
+    // non-alphabetic character, and return the substring 
+    // starting at startIndex, and ending at the current index.
+    // This means we select everything up to but not including
+    // the current index, and we shouldhave our word!
+    while (isAlphabetic(searchText.charAt(index))){
+        index++;
+    }
+    return searchText.subString(startIndex, index);
 }
 
 function isAlphabetic(character){
