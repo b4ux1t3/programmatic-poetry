@@ -46,5 +46,6 @@ function findWordAtIndex(searchText, index){
 }
 
 function isAlphabetic(character){
+    // Use regex sorcery from https://stackoverflow.com/questions/9862761/how-to-check-if-character-is-a-letter-in-javascript
     return str.length === character.match(/[A-Z|a-z|ü|é]/i);
 }
