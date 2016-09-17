@@ -38,7 +38,7 @@ function findWordAtIndex(searchText, index){
     // non-alphabetic character, and return the substring 
     // starting at startIndex, and ending at the current index.
     // This means we select everything up to but not including
-    // the current index, and we shouldhave our word!
+    // the current index, and we should have our word!
     while (isAlphabetic(searchText.charAt(index))){
         index++;
     }
